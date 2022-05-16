@@ -82,45 +82,60 @@ class RunGame:
             else:
                 print("AI Wins")
                 self.ai.win_count += 1
+        if self.player1.win_count == 2:
+            print("Yay Player one you won!")
+        else:
+            print("All the tears for player one")
 
 
     def two_player(self):
-        player_one_choice = self.player1.choose_gesture
-        player_two_choice = self.player2.choose_gesture
+        while self.player1.win_count < 2 and self.player2.win_count < 2:
+            print("Player one make a selection")
+            self.player1.choose_gesture()
+            print("Player two make a selection")
+            self.player2.choose_gesture()
+            player_one_choice = self.player1.chosen_gesture
+            player_two_choice = self.player2.chosen_gesture
 
-        if player_one_choice == "Rock" and player_two_choice == "Scissors":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Scissors" and player_two_choice == "Paper":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Paper" and player_two_choice == "Rock":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Rock" and player_two_choice == "Lizard":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Lizard" and player_two_choice == "Spock":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Spock" and player_two_choice == "Scissors":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Scissors" and player_two_choice == "Lizard":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Lizard" and player_two_choice == "Paper":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Paper" and player_two_choice == "Spock":
-            print("Player One Wins")
-            self.player1.win_count += 1
-        elif player_one_choice == "Spock" and player_two_choice == "Rock":
-            print("Player One Wins")
-            self.player1.win_count += 1
+            if player_one_choice == player_two_choice:
+                print("It's a Tie!")
+            elif player_one_choice == "Rock" and player_two_choice == "Scissors":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Scissors" and player_two_choice == "Paper":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Paper" and player_two_choice == "Rock":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Rock" and player_two_choice == "Lizard":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Lizard" and player_two_choice == "Spock":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Spock" and player_two_choice == "Scissors":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Scissors" and player_two_choice == "Lizard":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Lizard" and player_two_choice == "Paper":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Paper" and player_two_choice == "Spock":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            elif player_one_choice == "Spock" and player_two_choice == "Rock":
+                print("Player One Wins")
+                self.player1.win_count += 1
+            else:
+                print("Player Two Wins")
+                self.player2.win_count += 1
+        if self.player1.win_count == 2:
+            print("Yay Player one you won!")
         else:
-            print("Player Two Wins")
-            self.player2.win_count += 1
+            print("Yay Player two you won!")
 
 
 new_game = RunGame()
