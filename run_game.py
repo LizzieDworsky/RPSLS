@@ -38,3 +38,9 @@ class RunGame:
                 is_valid = True
             else:
                 print ("Sorry we didn't get that.")
+
+    def ai_game(self):
+        pass
+
+    def two_player(self):
+        pass
