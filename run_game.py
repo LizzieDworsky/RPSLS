@@ -31,16 +31,97 @@ class RunGame:
         while is_valid == False:
             user_input = input ("How many players, one or two? ")
             if user_input == "1":
-                #run ai game
+                self.single_player()
                 is_valid = True
             elif user_input == "2":
-                #run human v human game
+                self.two_player()
                 is_valid = True
             else:
                 print ("Sorry we didn't get that.")
 
-    def ai_game(self):
-        pass
+    def single_player(self):
+        while self.player1.win_count < 2 and self.ai.win_count < 2:
+            self.player1.choose_gesture()
+            self.ai.choose_gesture()
+            gesture_choice = self.player1.chosen_gesture
+            ai_choice = self.ai.chosen_gesture
+
+            if gesture_choice == ai_choice:
+                print("It's a Tie!")
+
+            elif gesture_choice == "Rock" and ai_choice == "Scissors":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Scissors" and ai_choice == "Paper":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Paper" and ai_choice == "Rock":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Rock" and ai_choice == "Lizard":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Lizard" and ai_choice == "Spock":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Spock" and ai_choice == "Scissors":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Scissors" and ai_choice == "Lizard":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Lizard" and ai_choice == "Paper":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Paper" and ai_choice == "Spock":
+                print("Player Wins")
+                self.player1.win_count += 1
+            elif gesture_choice == "Spock" and ai_choice == "Rock":
+                print("Player Wins")
+                self.player1.win_count += 1
+            else:
+                print("AI Wins")
+                self.ai.win_count += 1
+
 
     def two_player(self):
-        pass
+        player_one_choice = self.player1.choose_gesture
+        player_two_choice = self.player2.choose_gesture
+
+        if player_one_choice == "Rock" and player_two_choice == "Scissors":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Scissors" and player_two_choice == "Paper":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Paper" and player_two_choice == "Rock":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Rock" and player_two_choice == "Lizard":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Lizard" and player_two_choice == "Spock":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Spock" and player_two_choice == "Scissors":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Scissors" and player_two_choice == "Lizard":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Lizard" and player_two_choice == "Paper":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Paper" and player_two_choice == "Spock":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        elif player_one_choice == "Spock" and player_two_choice == "Rock":
+            print("Player One Wins")
+            self.player1.win_count += 1
+        else:
+            print("Player Two Wins")
+            self.player2.win_count += 1
+
+
+new_game = RunGame()
+new_game.single_multi_player()

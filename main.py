@@ -38,7 +38,6 @@ new_human = Human( )
 
 new_ai = AI()
 
-new_human.choose_gesture()
 new_ai.choose_gesture()
 
 
