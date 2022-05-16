@@ -26,6 +26,10 @@ class RunGame:
         print ("Spock vaporizes Rock")
         print ("")
 
+    def run_game(self):
+        self.welcome()
+        self.single_multi_player()
+
     def single_multi_player(self):
         is_valid = False
         while is_valid == False:
@@ -136,7 +140,3 @@ class RunGame:
             print("Yay Player one you won!")
         else:
             print("Yay Player two you won!")
-
-
-new_game = RunGame()
-new_game.single_multi_player()
