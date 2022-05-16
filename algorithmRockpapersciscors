@@ -1,0 +1,50 @@
+problem: Given a set of user stories / requirements, create a game to determine a winner between 2 players using different gestures in different rounds
+
+endstate: working program, free of user input errors, that plays 3 rounds of players providing a gesture and evaluating the players gestures per round. Winner is declared when best 2 out of 3 is achieved.
+
+X need to create board space
+display a greeting to user
+display rules of the game
+ask user if single or multiplayer game
+  - need to create two players
+  - have an option for ai to play against
+  - need to have an ai functional
+need a list of gestures for players to choose from
+  - Rock, Paper, Scissors, Lizard, Spock
+both players throw gestures
+  - opponents choose their gestures - ask user what gesture they would like to use
+compare/evaluate gestures for who wins that round - **consider a tie**
+  - Rock crushes Scissors 
+  - Scissors cuts Paper 
+  - Paper covers Rock 
+  - Rock crushes Lizard 
+  - Lizard poisons Spock 
+  - Spock smashes Scissors 
+  - Scissors decapitates Lizard 
+  - Lizard eats Paper
+  - Paper disproves Spock 
+  - Spock vaporizes Rock
+display round winner
+repeat the rounds to achieve best two out of three
+  - keep track of how many wins each player has
+  - end game with winner / display overall winner
+optional: add a replay option
+
+display a greeting to user
+display rules of the game
+ask user if single or multiplayer game
+opponents choose gestures
+compare gestures
+dertermine who won round or tie
+check to see if anyone has won the game
+  - if someone hasnt won game repeat 4-7
+  - if someone has won end game and display the winner
+
+  player:
+    name
+    choose gestures
+    keep track of score
+
+    player(parent)
+      - AI(child)
+      - Human(child)
