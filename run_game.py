@@ -50,7 +50,7 @@ class RunGame:
         while self.player1.win_count < 2 and self.player2.win_count < 2:
             round_count += 1
             print ("")
-            print (f"The current standing for round {round_count} is Player One has {str(self.player1.win_count)} wins and Player Two has {str(self.player2.win_count)} wins.")
+            print (f"The current standing for round {round_count} is Player One has {self.player1.win_count} wins and Player Two has {self.player2.win_count} wins.")
             print("Player one make a selection")
             self.player1.choose_gesture()
             print("Player two make a selection")
@@ -63,4 +63,8 @@ class RunGame:
                 self.player1.win_count += 1
             else:
                 print (f"Player Two's {self.player2.chosen_gesture.name} beat Player One's {self.player1.chosen_gesture.name}.")
-                self.player2.win_count += 1               
+                self.player2.win_count += 1
+        if self.player1.win_count == 2:
+            print("Yay Player One won!")
+        else:
+            print("Yay Player Two won!")

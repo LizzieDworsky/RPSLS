@@ -4,4 +4,4 @@ class Rock(Gesture):
     def __init__(self):
         super().__init__()
         self.name = "Rock"
-        self.beats = ["Scissors", "Lizard"]
+        self.losing_gestures = ["Scissors", "Lizard"]
