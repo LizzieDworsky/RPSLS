@@ -56,7 +56,9 @@ class RunGame:
             print("Player two make a selection")
             self.player2.choose_gesture()
             self.player1.chosen_gesture.comparison(self.player2.chosen_gesture)
-            if self.player1.chosen_gesture.win == True:
+            if self.player1.chosen_gesture.tie == True:
+                print ("It's a tie!")
+            elif self.player1.chosen_gesture.win == True:
                 print (f"Player One's {self.player1.chosen_gesture.name} beat Player Two's {self.player2.chosen_gesture.name}.")
                 self.player1.win_count += 1
             else:
