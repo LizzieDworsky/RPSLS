@@ -5,8 +5,7 @@ from ai import AI
 class RunGame:
     def __init__(self):
         self.player1 = Human()
-        self.player2 = Human()
-        self.ai = AI()
+        self.player2 = ""
     
     def welcome(self):
         print ("Welcome to Rock, Paper, Scissors, Lizard, Spock!")
@@ -27,74 +26,26 @@ class RunGame:
 
     def run_game(self):
         self.welcome()
-        self.single_multi_player()
+        self.select_players()
+        self.run_rounds()
+    
+    def assign_player_two(self, number_of_players):
+        if number_of_players == "1":
+            self.player2 = AI()
+        elif number_of_players == "2":
+            self.player2 = Human()
 
-    def single_multi_player(self):
+    def select_players(self):
         is_valid = False
         while is_valid == False:
             user_input = input ("How many players, one or two? ")
-            if user_input == "1":
-                self.single_player()
-                is_valid = True
-            elif user_input == "2":
-                self.two_player()
+            if user_input == "1" or user_input == "2":
+                self.assign_player_two(user_input)
                 is_valid = True
             else:
                 print ("Sorry we didn't get that.")
 
-    def single_player(self):
-        round_count = 0
-        self.player1.name = input("Please enter Player's name: ")
-        while self.player1.win_count < 2 and self.ai.win_count < 2:
-            round_count += 1
-            print ("")
-            print (f"The current standing for round {round_count} is {self.player1.name} has {str(self.player1.win_count)} wins and the computer has {str(self.ai.win_count)} wins.")
-            self.player1.choose_gesture()
-            self.ai.choose_gesture()
-            gesture_choice = self.player1.chosen_gesture
-            ai_choice = self.ai.chosen_gesture
-            if gesture_choice == ai_choice:
-                print("It's a Tie!")
-            elif gesture_choice == "Rock" and ai_choice == "Scissors":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Scissors" and ai_choice == "Paper":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Paper" and ai_choice == "Rock":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Rock" and ai_choice == "Lizard":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Lizard" and ai_choice == "Spock":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Spock" and ai_choice == "Scissors":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Scissors" and ai_choice == "Lizard":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Lizard" and ai_choice == "Paper":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Paper" and ai_choice == "Spock":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            elif gesture_choice == "Spock" and ai_choice == "Rock":
-                print(f"{self.player1.name} wins this round!")
-                self.player1.win_count += 1
-            else:
-                print("AI Wins")
-                self.ai.win_count += 1
-        if self.player1.win_count == 2:
-            print(f"Yay {self.player1.name} you won!")
-        else:
-            print(f"All the tears for {self.player1.name}.")
-
-
-    def two_player(self):
+    def run_rounds(self):
         round_count = 0
         while self.player1.win_count < 2 and self.player2.win_count < 2:
             round_count += 1
@@ -143,6 +94,6 @@ class RunGame:
                 print("Player Two Wins")
                 self.player2.win_count += 1
         if self.player1.win_count == 2:
-            print("Yay Player One you won!")
+            print("Yay Player One won!")
         else:
-            print("Yay Player Two you won!")
+            print("Yay Player Two won!")
