@@ -45,6 +45,18 @@ class RunGame:
             else:
                 print ("Sorry we didn't get that.")
 
+    def rewrite(self):
+        round_count = 0
+        while self.player1.win_count < 2 and self.player2.win_count < 2:
+            round_count += 1
+            print ("")
+            print (f"The current standing for round {round_count} is Player One has {str(self.player1.win_count)} wins and Player Two has {str(self.player2.win_count)} wins.")
+            print("Player one make a selection")
+            self.player1.choose_gesture()
+            print("Player two make a selection")
+            self.player2.choose_gesture()
+
+
     def run_rounds(self):
         round_count = 0
         while self.player1.win_count < 2 and self.player2.win_count < 2:

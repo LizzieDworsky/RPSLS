@@ -1,4 +1,7 @@
 from gesture import Gesture
 
 class Rock(Gesture):
-    super().__init__()
+    def __init__(self):
+        super().__init__()
+        self.name = "Rock"
+        self.beats = ["Scissors", "Lizard"]

@@ -15,4 +15,3 @@ class Human(Player):
                 input_valid = True
             else:
                 user_selection = print ("Sorry we didn't get that. Please try again.")
-
