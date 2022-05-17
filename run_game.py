@@ -25,6 +25,7 @@ class RunGame:
         print ("Paper disproves Spock")
         print ("Spock vaporizes Rock")
         print ("")
+        print ("Best two of three, lets begin!")
 
     def run_game(self):
         self.welcome()
@@ -34,6 +35,7 @@ class RunGame:
         is_valid = False
         while is_valid == False:
             user_input = input ("How many players, one or two? ")
+            print ("")
             if user_input == "1":
                 self.single_player()
                 is_valid = True
@@ -49,10 +51,8 @@ class RunGame:
             self.ai.choose_gesture()
             gesture_choice = self.player1.chosen_gesture
             ai_choice = self.ai.chosen_gesture
-
             if gesture_choice == ai_choice:
                 print("It's a Tie!")
-
             elif gesture_choice == "Rock" and ai_choice == "Scissors":
                 print("Player Wins")
                 self.player1.win_count += 1
