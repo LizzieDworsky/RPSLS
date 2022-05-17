@@ -35,7 +35,6 @@ class RunGame:
         is_valid = False
         while is_valid == False:
             user_input = input ("How many players, one or two? ")
-            print ("")
             if user_input == "1":
                 self.single_player()
                 is_valid = True
@@ -46,7 +45,11 @@ class RunGame:
                 print ("Sorry we didn't get that.")
 
     def single_player(self):
+        round_count = 0
         while self.player1.win_count < 2 and self.ai.win_count < 2:
+            round_count += 1
+            print ("")
+            print (f"The current standing for round {round_count} is Player has {str(self.player1.win_count)} wins and the computer has {str(self.ai.win_count)} wins.")
             self.player1.choose_gesture()
             self.ai.choose_gesture()
             gesture_choice = self.player1.chosen_gesture
@@ -87,13 +90,17 @@ class RunGame:
                 print("AI Wins")
                 self.ai.win_count += 1
         if self.player1.win_count == 2:
-            print("Yay Player one you won!")
+            print("Yay Player you won!")
         else:
-            print("All the tears for player one")
+            print("All the tears for player one:*(")
 
 
     def two_player(self):
+        round_count = 0
         while self.player1.win_count < 2 and self.player2.win_count < 2:
+            round_count += 1
+            print ("")
+            print (f"The current standing for round {round_count} is Player One has {str(self.player1.win_count)} wins and Player Two has {str(self.player2.win_count)} wins.")
             print("Player one make a selection")
             self.player1.choose_gesture()
             print("Player two make a selection")
@@ -137,6 +144,6 @@ class RunGame:
                 print("Player Two Wins")
                 self.player2.win_count += 1
         if self.player1.win_count == 2:
-            print("Yay Player one you won!")
+            print("Yay Player One you won!")
         else:
-            print("Yay Player two you won!")
+            print("Yay Player Two you won!")
