@@ -7,4 +7,4 @@ class AI(Player):
 
     def choose_gesture(self):
         self.chosen_gesture = random.choice(self.all_gestures)
-        print(f'AI chose {self.chosen_gesture}')
+        print(f'AI chose {self.chosen_gesture.name}')
